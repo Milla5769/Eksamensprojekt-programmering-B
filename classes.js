@@ -1,24 +1,25 @@
 class Sun{
-    constructor(x, y, /*mass,*/ /*speed*/ d){
+    constructor(x, y /*mass,*/ /*speed*/){
         this.x = x
         this.y = y
         // this.mass = mass
         // this.speed = speed
-        this.d = d //695508 km
+        this.d_sun = 139 //(695508*2km)/10000
     }
 
     show(){
         noStroke()
         //fill(255,0,0)
-        image(sun_icon, this.x-this.d/2, this.y-this.d/2, this.d, this.d)
+        image(pictures[0], this.x-this.d_sun/2, this.y-this.d_sun/2, this.d_sun, this.d_sun)
         //ellipse(this.x,this.y,this.r)
     }
 }
 
 class Planet extends Sun{
     constructor(x,y,d){
-        super(x, y, /*mass, speed*/d)
+        super(x, y /*mass, speed*/)
         this.angle = 0
+        this.d = d
     }
 
     move(){
@@ -32,6 +33,6 @@ class Planet extends Sun{
 
     show(){
         noStroke()
-        image(earth_icon, this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+        image(pictures[3], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
     }
 }
