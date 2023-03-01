@@ -1,38 +1,54 @@
 class Sun{
-    constructor(x, y /*mass,*/ /*speed*/){
+    constructor(x, y, d_sun = 139){
         this.x = x
         this.y = y
-        // this.mass = mass
-        // this.speed = speed
-        this.d_sun = 139 //(695508*2km)/10000
+        this.d_sun = d_sun //(695508*2km)/10000
     }
 
     show(){
         noStroke()
-        //fill(255,0,0)
         image(pictures[0], this.x-this.d_sun/2, this.y-this.d_sun/2, this.d_sun, this.d_sun)
-        //ellipse(this.x,this.y,this.r)
     }
 }
 
 class Planet extends Sun{
-    constructor(x,y,d){
-        super(x, y /*mass, speed*/)
-        this.angle = 0
+    constructor(x, y, d, nr, au, angle, d_sun){
+        super(x, y, d_sun)
+        this.start = 0
+        this.angle = angle
         this.d = d
+        this.nr = nr
+        this.au = au
     }
 
     move(){
         //x = x_coord + radius * cos(angle) 
-        this.x = windowWidth/2 + 200 * cos(this.angle);
-        this.y = windowHeight/2 + 200 * sin(this.angle);
+        this.x = windowWidth/2 + (this.au + this.d_sun - this.d/2)  * cos(this.start);
+        this.y = windowHeight/2 + (this.au + this.d_sun - this.d/2) * sin(this.start);
         this.show()
-        this.angle += 1
-        console.log(this.angle)
+        this.start += this.angle
     }
 
     show(){
         noStroke()
-        image(pictures[3], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+        if (this.nr == 1){
+            image(pictures[1], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+        }
+        else if(this.nr == 2){
+            image(pictures[2], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+        }
+        else if(this.nr == 3){
+            image(pictures[3], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+        }else if(this.nr == 4){
+            image(pictures[4], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+        }else if(this.nr == 5){
+            image(pictures[5], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+        }else if(this.nr == 6){
+            image(pictures[6], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+        }else if(this.nr == 7){
+            image(pictures[7], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+        }else{
+            image(pictures[8], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+        }
     }
 }
