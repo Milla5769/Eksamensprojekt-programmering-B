@@ -29,26 +29,34 @@ class Planet extends Sun{
         this.start += this.angle
     }
 
-    show(){
-        noStroke()
-        if (this.nr == 1){
-            image(pictures[1], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
-        }
-        else if(this.nr == 2){
-            image(pictures[2], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
-        }
-        else if(this.nr == 3){
-            image(pictures[3], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
-        }else if(this.nr == 4){
-            image(pictures[4], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
-        }else if(this.nr == 5){
-            image(pictures[5], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
-        }else if(this.nr == 6){
-            image(pictures[6], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
-        }else if(this.nr == 7){
-            image(pictures[7], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
-        }else{
-            image(pictures[8], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
-        }
-    }
+   // show(){
+    //     noStroke()
+    //     if (this.nr == 1){
+    //         image(pictures[1], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+    //     }
+    //     else if(this.nr == 2){
+    //         image(pictures[2], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+    //     }
+    //     else if(this.nr == 3){
+    //         image(pictures[3], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+    //     }else if(this.nr == 4){
+    //         image(pictures[4], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+    //     }else if(this.nr == 5){
+    //         image(pictures[5], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+    //     }else if(this.nr == 6){
+    //         image(pictures[6], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+    //     }else if(this.nr == 7){
+    //         image(pictures[7], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+    //     }else{
+    //         image(pictures[8], this.x-this.d/2, this.y-this.d/2,this.d,this.d)
+    //     }
+
+    // }
+
+    show() {
+        noStroke();
+        const imageIndex = this.nr > 0 && this.nr <= pictures.length ? this.nr : pictures.length - 1;
+        image(pictures[imageIndex], this.x - this.d / 2, this.y - this.d / 2, this.d, this.d);
+      }
+      
 }
