@@ -1,7 +1,7 @@
 let stars;
 let sun;
 let planets = []
-let planets_pic = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn1", "Uranus", "Neptune"]
+let planets_pic = ["Sun", "Mercury", "venus1", "Earth", "Mars", "Jupiter", "Saturn1", "Uranus", "Neptune"]
 let pictures = ["sun_icon", "mercury_icon", "venus_icon", "earth_icon", "mars_icon", "jupiter_icon", "saturn_icon", "uranus_icon", "neptune_icon"]
 
 
@@ -29,7 +29,7 @@ function setup() {
 }
 
 function draw() {
-  image(stars,0,0,1368,761)
+  image(stars,0,0,windowWidth,windowHeight)
   for(let planet of planets){
     planet.show();
     planet.move();
