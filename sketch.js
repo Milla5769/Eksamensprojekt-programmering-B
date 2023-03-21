@@ -55,7 +55,7 @@ function collision() {
   for (let i = 0; i < planets.length; i++) {
     if (dist(mouseX, mouseY, planets[i].x, planets[i].y) < Math.sqrt((planets[i].d/2)) + padding) {
       console.log(i);
-      return image(pictures[i+1], 0, 0, 100, 100);
+      return image(pictures[i+1], 0, 0, 150, 150);
     }
   }
 }
