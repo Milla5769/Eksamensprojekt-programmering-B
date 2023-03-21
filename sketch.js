@@ -51,7 +51,7 @@ function draw() {
 //}
 
 function collision() {
-  const padding = 20; // Set the padding value to 20 pixels
+  let padding = 20; // Set the padding value to 20 pixels
   for (let i = 0; i < planets.length; i++) {
     if (dist(mouseX, mouseY, planets[i].x, planets[i].y) < Math.sqrt((planets[i].d/2)) + padding) {
       console.log(i);
