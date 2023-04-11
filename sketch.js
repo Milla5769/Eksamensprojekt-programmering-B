@@ -16,15 +16,16 @@ function setup() {
   angleMode(DEGREES)
   createCanvas(windowWidth, windowHeight);
   sun = new Sun(windowWidth/2, windowHeight/2) 
+  //https://solarsystem.nasa.gov/planet-compare/
   planets = [
-    new Planet(windowWidth/2, windowHeight/2, 1.95176, 1, 1, 0.0612 /*0.4*/),
-    new Planet(windowWidth/2, windowHeight/2, 4.84144, 2, 20, 0.0149184 /*0.7*/),
-    new Planet(windowWidth/2, windowHeight/2, 5.0968, 3, 40, 0.0161136 /*1*/),
-    new Planet(windowWidth/2, windowHeight/2, 2.7116, 4, 60, 0.072432 /*1.5*/),
-    new Planet(windowWidth/2, windowHeight/2, 55.9288, 5, 120, 0.086688 /*5.2*/),
-    new Planet(windowWidth/2, windowHeight/2, 109.435392, 6, 180, 0.0519696 /*9.5*/),
-    new Planet(windowWidth/2, windowHeight/2, 20.2896, 7, 200, 0.0307872 /*19.8*/),
-    new Planet(windowWidth/2, windowHeight/2, 19.6976, 8, 220, 0.0339264/*30.1*/),
+    new Planet(windowWidth/2, windowHeight/2, 1.95176, 1, 1, 0.0612),
+    new Planet(windowWidth/2, windowHeight/2, 4.84144, 2, 20, 0.0149184),
+    new Planet(windowWidth/2, windowHeight/2, 5.0968, 3, 40, 0.0161136),
+    new Planet(windowWidth/2, windowHeight/2, 2.7116, 4, 60, 0.072432),
+    new Planet(windowWidth/2, windowHeight/2, 55.9288, 5, 120, 0.086688),
+    new Planet(windowWidth/2, windowHeight/2, 109.435392, 6, 180, 0.0519696),
+    new Planet(windowWidth/2, windowHeight/2, 20.2896, 7, 200, 0.0307872),
+    new Planet(windowWidth/2, windowHeight/2, 19.6976, 8, 220, 0.0339264),
   ]
 }
 
@@ -36,7 +37,8 @@ function draw() {
     // planet.clicked();
   }
   sun.show();
-  collision()
+  // collision()
+  zoom();
   // let i = collision()
   // image(pictures[i],0,0,100,100)
 }
@@ -50,14 +52,25 @@ function draw() {
 //  }
 //}
 
-function collision() {
-  let padding = 20; // Set the padding value to 20 pixels
+function zoom() {
   for (let i = 0; i < planets.length; i++) {
-    if (dist(mouseX, mouseY, planets[i].x, planets[i].y) < Math.sqrt((planets[i].d/2)) + padding) {
-      console.log(i);
+    if (dist(mouseX, mouseY, planets[i].x, planets[i].y) < Math.sqrt((planets[i].d/2)) + 20) {
       return image(pictures[i+1], 0, 0, 150, 150);
     }
   }
 }
+
+// function zoom(){
+//   for (let i = 0; i < planets.length; i++) {
+//     if (mouseIsPressed) {
+//       if (dist(mouseX, mouseY, planets[i].x, planets[i].y) < Math.sqrt((planets[i].d/2)) + 20) {
+//         push();
+//         scale(1);
+//         image(pictures[i+1], planets[i].x, planets[i].y, planets[i].d , planets[i].d);
+//         pop();
+//       }
+//     }  
+//   }
+// }
 
 
