@@ -2,7 +2,7 @@ class Sun{
     constructor(x, y, d_sun = 139){
         this.x = x
         this.y = y
-        this.d_sun = d_sun //(695508*2km)/10000
+        this.d_sun = d_sun
     }
 
     show(){
