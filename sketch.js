@@ -1,7 +1,7 @@
 let stars;
 let sun;
 let planets = []
-let planets_pic = ["Sun", "Mercury", "venus1", "Earth", "Mars", "Jupiter", "Saturn1", "Uranus", "Neptune"]
+let planets_pic = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
 let pictures = ["sun_icon", "mercury_icon", "venus_icon", "earth_icon", "mars_icon", "jupiter_icon", "saturn_icon", "uranus_icon", "neptune_icon"]
 
 
@@ -55,7 +55,11 @@ function draw() {
 function zoom() {
   for (let i = 0; i < planets.length; i++) {
     if (dist(mouseX, mouseY, planets[i].x, planets[i].y) < Math.sqrt((planets[i].d/2)) + 20) {
-      return image(pictures[i+1], 0, 0, 150, 150);
+      image(pictures[i+1], 0, 0, 150, 150);
+      //return image(pictures[i+1], 0, 0, 150, 150);
+      let button = createButton("Information")
+      button.position(25,180)
+      button.mouseClicked(window.open("https://solarsystem.nasa.gov/planets/"+ planets_pic[i+1].toLowerCase() +"/overview/"))
     }
   }
 }
