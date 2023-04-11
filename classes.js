@@ -34,11 +34,4 @@ class Planet extends Sun{
         let imageIndex = this.nr > 0 && this.nr <= pictures.length ? this.nr : pictures.length - 1;
         image(pictures[imageIndex], this.x - this.d / 2, this.y - this.d / 2, this.d, this.d);
       }
-
-    // clicked(){
-    //     if (dist(mouseX, mouseY, this.x, this.y) < this.d/2) {
-    //         background(255,0,0)
-
-    //     }
-    // }
 }
