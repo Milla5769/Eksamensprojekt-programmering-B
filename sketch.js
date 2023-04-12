@@ -1,10 +1,11 @@
 let stars;
+let link_a, link_b;
 let sun;
 let set_pic=-1;
 let planets = []
 let planets_pic = ["Sun", "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
 let pictures = ["sun_icon", "mercury_icon", "venus_icon", "earth_icon", "mars_icon", "jupiter_icon", "saturn_icon", "uranus_icon", "neptune_icon"]
-
+let link
 
 function preload() {
   for (let i = 0; i < planets_pic.length; i++ ){
@@ -38,17 +39,32 @@ function draw() {
   }
   sun.show();
   zoom();
+
   if(set_pic>-1){
-    image(pictures[set_pic], 0, 0, 150, 150);
+      image(pictures[set_pic], 0, 0, 150, 150);
   }
+  else if(set_pic == 0){
+    image(pictures[set_pic], 0, 0, 150, 150);
+  }   
 }
 
 function zoom() {
+  if (dist(mouseX, mouseY, sun.x, sun.y) < Math.sqrt((sun.d_sun/2))+20) {
+    set_pic = 0;
+    if (link) {
+      link.remove();
+    }
+    link = createA("https://solarsystem.nasa.gov/solar-system/sun/overview/", "Information om Solen","_blank");
+    link.position(5,180);
+  }
   for (let i = 0; i < planets.length; i++) {
     if (dist(mouseX, mouseY, planets[i].x, planets[i].y) < Math.sqrt((planets[i].d/2)) + 20) {
-      set_pic = i+1
-      let link = createA("https://solarsystem.nasa.gov/planets/"+ planets_pic[i+1].toLowerCase() +"/overview/", "Information om planeten","_blank")
-      link.position(5,180)
+      set_pic = i+1;
+      if (link) {
+        link.remove(); 
+      }
+      link = createA("https://solarsystem.nasa.gov/planets/"+ planets_pic[i+1].toLowerCase() +"/overview/", "Information om planeten","_blank");
+      link.position(5,180);
     }
-  }
+  } 
 }
