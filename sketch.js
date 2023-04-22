@@ -18,6 +18,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   sun = new Sun(windowWidth/2, windowHeight/2) 
   //https://solarsystem.nasa.gov/planet-compare/
+  //https://nssdc.gsfc.nasa.gov/planetary/factsheet/index.html
   planets = [
     new Planet(windowWidth/2, windowHeight/2, 1.95176, 1, 1, 0.474),
     new Planet(windowWidth/2, windowHeight/2, 4.84144, 2, 20, 0.35),
